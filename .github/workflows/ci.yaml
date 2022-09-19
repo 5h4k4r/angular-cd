@@ -1,9 +1,8 @@
-name: Publish Docker image
-
+name: Update kustomize files
 on:
   push:
     branches:
-      - dev
+      - main
     paths-ignore:
       - "*.md"
       - ".vscode/**"
@@ -12,10 +11,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  update-resources:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: push-to-docker
 
     steps:
       - name: Check out code
@@ -34,17 +32,17 @@ jobs:
           kustomize edit set image angular-k8s=$DOCKER_USERNAME/angular-k8s:$GITHUB_SHA
           cat kustomization.yaml
 
-      # - name: Commit files
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git commit -am "Bump docker tag"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Bump docker tag"
 
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
 
       # - name: Notify argocd
       #   uses: clowdhaus/argo-cd-action/@main
