@@ -16,6 +16,6 @@ configMapGenerator:
 images:
 - name: angular-k8s
   newName: 5h4k4r/angular-k8s
-  newTag: ba809d0777a3206449f891b11fbf93fb6e8577d6
+  newTag: 6a0c78dc6532f9703a2dbe0cfef3a7ea0ce7ac05
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
