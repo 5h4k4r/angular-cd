@@ -5,10 +5,6 @@ patches:
     target:
       kind: Ingress
       name: angular
-  - path: image-patch.yaml
-    target:
-      kind: Deployment
-      name: angular
 
 commonLabels:
   app: dev-angular
