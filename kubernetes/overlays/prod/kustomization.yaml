@@ -1,22 +1,27 @@
 resources:
-  - ../../base
+- ../../base
 patches:
-  - path: ingress-patch.yaml
-    target:
-      kind: Ingress
-      name: angular
+- path: ingress-patch.yaml
+  target:
+    kind: Ingress
+    name: angular
 commonLabels:
   app: prod-angular
 namespace: prod
 replicas:
-  - name: angular
-    count: 2
+- count: 2
+  name: angular
 images:
-  - name: angular
-    newTag: 6b654da03c0e
+- name: 5h4k4r/angular-k8s
+  newName: 5h4k4r/angular-k8s
+  newTag: d82358154ac6eeda458e46221977bcfade53cb90
+- name: angular
+  newTag: 6b654da03c0e
 namePrefix: prod-
 configMapGenerator:
-  - name: angular
-    behavior: merge
-    literals:
-      - ENV=prod
+- behavior: merge
+  literals:
+  - ENV=prod
+  name: angular
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
