@@ -7,11 +7,12 @@ patchesJson6902:
       kind: Ingress
       name: angular
     path: ingress-patch.yaml
+
 commonLabels:
   app: staging-angular
 namespace: staging
 configMapGenerator:
-  - name: angular
-    behavior: merge
+  - behavior: merge
     literals:
       - ENV=staging
+    name: angular
