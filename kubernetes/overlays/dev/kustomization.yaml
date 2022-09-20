@@ -19,4 +19,4 @@ kind: Kustomization
 images:
 - name: 5h4k4r/angular-k8s
   newName: 5h4k4r/angular-k8s
-  newTag: dev
+  newTag: 8a0a196893916142fdfaf10e2d072053f9bfbdf4
