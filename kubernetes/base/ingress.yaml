@@ -10,7 +10,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: \b(?!api\b)\w+
+            path: "^(?!api).*"
             backend:
               service:
                 name: angular
