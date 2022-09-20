@@ -4,6 +4,8 @@ metadata:
   name: angular
   labels:
     name: angular
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
     - host: shakar.tech
