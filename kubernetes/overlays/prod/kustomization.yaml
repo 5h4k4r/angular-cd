@@ -18,5 +18,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: 5h4k4r/angular-k8s
-  newName: DOCKER_USERNAME/angular-k8s
-  newTag: a4c46ad20d8d642e93f9fac1a025615861d447fd
+  newName: 5h4k4r/angular-k8s
+  newTag: 6e1f2110fb5671c41a5ac067bb4ed03083c5e6d9
