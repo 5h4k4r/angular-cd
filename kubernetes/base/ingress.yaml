@@ -4,7 +4,13 @@ metadata:
   name: angular
   labels:
     name: angular
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
+  tls:
+    - hosts:
+        - shakar.tech
+      secretName: lets-encrypt-shakar.tech
   rules:
     - host: shakar.tech
       http:
