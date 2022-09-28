@@ -1,3 +1,13 @@
 - op: replace
   path: /spec/rules/0/host
   value: staging.shakar.tech
+- op: add
+  path: /spec/tls
+  value:
+    - hosts:
+        - staging.shakar.tech
+      secretName: staging-tls
+- op: add
+  path: /metadata/annotations
+  value:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
